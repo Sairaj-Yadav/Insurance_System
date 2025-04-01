@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Logout Page</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      .logout-img {
+        width: 800px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "insurance/navbar.html" %}
+    
+    <div class="container">
+      <img class="logout-img" src="{% static 'image/logout_img.png' %}" alt="Logout Image">
+      
+      <!-- Logout form -->
+      <form method="POST" action="{% url 'custom_logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+
+    <br><br><br><br><br>
+    {% include "insurance/footer.html" %}
+  </body>
+</html>
